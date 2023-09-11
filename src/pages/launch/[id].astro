@@ -23,4 +23,9 @@ if (id) {
 */
 ---
 
-<Layout title={`Lanzamiento ${id}`}>{launch?.id}</Layout>
+<Layout title={`Lanzamiento ${id}`}>
+  <article class="mx-auto w-52">
+    <img src={launch.links.patch.small} alt="" />
+    <h2>{launch.details}</h2>
+  </article>
+</Layout>
