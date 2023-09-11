@@ -3,21 +3,24 @@ import Layout from "../../layouts/Layout.astro"
 import { getLatestLauches, getLaunchBy } from "../../services/spacex"
 const { id } = Astro.params
 
+export const prerender = false // output hibrid
+
 let launch
 if (id) {
   launch = await getLaunchBy({ id })
   console.log(launch)
 }
 
-export const getStaticPaths = async () => {
+/* export const getStaticPaths = async () => {
   const launches = await getLatestLauches()
 
   const params = launches.map((launch) => ({
     params: { id: launch.id },
   }))
 
-  return params
+  return params 
 }
+*/
 ---
 
 <Layout title={`Lanzamiento ${id}`}>{launch?.id}</Layout>
